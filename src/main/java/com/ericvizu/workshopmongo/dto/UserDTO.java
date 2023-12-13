@@ -6,11 +6,11 @@ import com.ericvizu.workshopmongo.domain.User;
 
 public class UserDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	private String id;
 	private String name;
 	private String email;
-	
+
 	public UserDTO() {
 	}
 
@@ -19,6 +19,15 @@ public class UserDTO implements Serializable {
 		name = obj.getName();
 		email = obj.getEmail();
 	}
+
+	/*
+	 * O método fromDTO está na classe UserService, pois dependendo da situação,
+	 * para instanciar um User eu posso querer acessar um banco de dados e quem tem
+	 * a dependência do banco de dados é o UserService. Então, para ficar uma
+	 * operação que seja possível fazer uma manutenção no futuro que tenha acesso à
+	 * dados é melhor ficar no UserService
+	 * 
+	 */
 
 	public String getId() {
 		return id;
@@ -43,6 +52,5 @@ public class UserDTO implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-	
+
 }

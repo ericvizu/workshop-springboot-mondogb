@@ -1,7 +1,7 @@
 package com.ericvizu.workshopmongo.domain;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
@@ -13,7 +13,8 @@ public class Post implements Serializable {
 
 	@Id
 	private String id;
-	private Date date; // mudar isso
+//	private Date date; // antigo
+	private LocalDate date;
 	private String title;
 	private String body;
 	private User author;
@@ -21,7 +22,7 @@ public class Post implements Serializable {
 	public Post() {
 	}
 
-	public Post(String id, Date date, String title, String body, User author) {
+	public Post(String id, LocalDate date, String title, String body, User author) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -38,11 +39,11 @@ public class Post implements Serializable {
 		this.id = id;
 	}
 
-	public Date getDate() {
+	public LocalDate getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(LocalDate date) {
 		this.date = date;
 	}
 

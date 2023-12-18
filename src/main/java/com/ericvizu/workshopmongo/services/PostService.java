@@ -1,5 +1,6 @@
 package com.ericvizu.workshopmongo.services;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,10 +21,13 @@ public class PostService {
 		Optional<Post> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado"));
 	}
-	
+
 	public List<Post> findByTitle(String text) {
 		return repo.searchTitle(text);
 	}
 
+	public List<Post> fullSearch(String text, LocalDate minDate, LocalDate maxDate) {
+		return repo.fullSearch(text, minDate, maxDate.plusDays(1L));
+	}
 
 }
